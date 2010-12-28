@@ -1,0 +1,3 @@
+ METAR - supybot metar wrapper
+ Prints weather report about <station> to IRC with PRIVMSG (works with MSG or on channels).
+
