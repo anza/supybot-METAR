@@ -1,0 +1,90 @@
+
+.\" whoa these are comments
+.\" man page for supybot-METAR(7)
+.\" nroff -man -Tascii supybot-METAR.7 | less
+
+.TH supybot-METAR 7 "December 2010" "supybot-METAR 0.2" "Miscellaneous Commands" "metar"
+.SH NAME
+METAR \- metar to IRC wrapper plugin for supybot
+
+.SH SYNOPSIS
+.B metar [type]
+.I station
+
+.SH DESCRIPTION
+.B METAR
+is a standard plugin for
+.BR supybot (1).
+It prints weather report from
+.I station
+to IRC with PRIVMSG (works with MSG or on channels). All reports are printed with no line breaks. Specific behaviour depends on bot configuration. Calling without arguments should display a help.
+
+.SH OPTIONS
+.IP raw
+raw METAR data string
+
+.IP basic
+brief report with the most essential information. This is the default if type is omitted.
+
+.IP extended
+a more comprehensive report
+
+.P
+In most of the cases you will not want to write the whole type name. Therefore type can be abbreviated with the beginning of the type name. For example to get an extended report you could shorten the type as "e" (ex/ext/exte/extend and so on would be valid as well).
+
+Eventually the
+.I basic
+type is quite superfluous since you can omit the type altogether if you want a basic report.
+
+.SH FILES
+.I METAR/plugin.py
+.RS
+Bot administrators should modify at least help section according to their needs.
+.RE
+.I /usr/bin/metar
+.RS
+Executable file which prints wanted information to stdout. If the system permits, can be called from other locations too. Different path (and file) can be specified in
+.I plugin.py
+
+.SH EXAMPLES
+ metar efjy     --- basic report from Jyvaskyla
+ metar ba efjo  --- basic report from Joensuu
+ metar raw efva --- raw METAR data from Vaasa
+ metar e efhk   --- extended report from Helsinki-Vantaa
+ metar ext efvr --- extended report from Varkaus
+
+.SH ICAO CODES FOR FINNISH AIRPORTS
+ Enontekio ENF         EFET
+ Halli                 EFHA
+ Helsinki-Vantaa HEL   EFHK
+ Ivalo IVL             EFIV
+ Joensuu JOE           EFJO
+ Jyvaskyla JYV         EFJY
+ Kajaani KAJ           EFKI
+ Kauhava               EFKA
+ Kemi-Tornio KEM       EFKE
+ Kittila KTT           EFKT
+ Kokkola-Pietarsaari KOK EFKK
+ Kuopio KUO            EFKU
+ Kuusamo KAO           EFKS
+ Lappeenranta LPP      EFLP
+ Maarianhamina MHQ     EFMA
+ Mikkeli               EFMI
+ Oulu OUL              EFOU
+ Pori POR              EFPO
+ Rovaniemi RVN         EFRO
+ Savonlinna SVL        EFSA
+ Sodankyla             EFSO
+ Tampere-Pirkkala TMP  EFTP
+ Turku TKU             EFTU
+ Utti                  EFUT
+ Vaasa VAA             EFVA
+ Varkaus VRK           EFVR
+
+
+Please note not every station might present up-to-date information nor info at all.
+
+Complete list of ICAO airports can be found from http://weather.noaa.gov/data/nsd_bbsss.txt
+
+.SH AUTHOR
+This manual page has been written by louk <antti@may.fi> and is released under 'do whatever you want'-license.
