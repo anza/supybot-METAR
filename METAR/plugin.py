@@ -5,16 +5,12 @@
 # published under 'do whatever you want'-license
 ###
 
-import supybot.utils as utils
 from supybot.commands import *
-import supybot.plugins as plugins
-import supybot.ircutils as ircutils
 import supybot.callbacks as callbacks
-import subprocess
-import re
+import subprocess, re
 
 # this is the path to metar executable, you may need to change this
-# NOTE: the old 'metar' from eg. debian or ubuntu repos isn't suitable!
+# NOTE: the old 'metar' from e.g. debian or ubuntu repos isn't suitable!
 # use this: https://github.com/anza/metar/
 metarpath = "/usr/bin/metar"
 
